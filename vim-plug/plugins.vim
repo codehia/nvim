@@ -24,5 +24,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mattn/emmet-vim'
     Plug 'dense-analysis/ale'
     Plug 'honza/vim-snippets'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 
 call plug#end()

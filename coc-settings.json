@@ -12,6 +12,18 @@
     "json",
     "python"
   ],
+  // explorer
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings.global": {
+    "<cr>": [
+      "expandable?",
+      "expand",
+      "open"
+    ],
+    "v": "open:vsplit"
+  },
   // python config
   "python.pythonPath": "/home/arc/.virtual_envs/pynvim/bin/python",
   "python.formatting.provider": "black",
@@ -44,5 +56,20 @@
   // eslint config
   "eslint.enable": true,
   "eslint.run": "onType",
-  "eslint.autoFix": true
+  "eslint.autoFix": true,
+  // go config
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": [
+        "go.mod",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "filetypes": [
+        "go"
+      ]
+    }
+  }
 }

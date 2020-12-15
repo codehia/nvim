@@ -62,9 +62,9 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
-nnoremap <Leader>ps :Rg<SPACE>
-nnoremap <C-p> :GFiles<CR>
-nnoremap <Leader>pf :Files<CR>
+nnoremap <silent><Leader>ps :Rg<SPACE>
+nnoremap <silent><C-p> :GFiles<CR>
+nnoremap <silent><Leader>pf :Files<CR>
 
 " GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
@@ -77,12 +77,10 @@ nmap <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart
-
 " NerdCommenter mappings
 nmap <C-_>   <Plug>NERDCommenterToggle
 vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
 
-
-nnoremap <leader>n :nohl<CR>
-nmap <leader>n :nohl<CR>
+nnoremap <silent><leader>n :nohl<CR>
+nmap <silent><leader>n :nohl<CR>
 
