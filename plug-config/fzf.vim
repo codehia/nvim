@@ -60,6 +60,11 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4.. -e'}, 'right:50%', '?'),
   \   <bang>0)
 
+command! -bang -nargs=* Ag
+  \ call fzf#vim#grep(
+  \   'ag --column --numbers --noheading --color --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
 " Ripgrep advanced
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'

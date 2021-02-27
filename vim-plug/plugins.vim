@@ -1,9 +1,11 @@
+let g:coc_global_extensions = ['coc-snippets', 'coc-explorer', 'coc-eslint', 'coc-yaml', 'coc-vimtex', 'coc-tsserver', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-pairs', 'coc-spell-checker']
+
 call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'sheerun/vim-polyglot'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'joshdick/onedark.vim'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'joshdick/onedark.vim'
+    Plug 'ayu-theme/ayu-vim' " or other package manager
+    Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
@@ -25,6 +27,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'dense-analysis/ale'
     Plug 'honza/vim-snippets'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+    " Plug 'vimpostor/vim-tpipeline'
+    " Plug 'Yggdroot/indentLine'
 
 call plug#end()

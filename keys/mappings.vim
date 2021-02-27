@@ -2,19 +2,6 @@
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
-" Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
-
-" I hate escape more than anything else
-inoremap jk <Esc>
-inoremap kj <Esc>
-
-" Easy CAPS
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwU<Esc>
 
 " TAB in general mode will move to text buffer
 nnoremap <silent> <TAB> :bnext<CR>
@@ -34,14 +21,6 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 vnoremap < <gv
 vnoremap > >gv
 
-" Better window navigation
-nnoremap <silent> <C-h> <C-w>h
-nnoremap <silent>  <C-j> <C-w>j
-nnoremap <silent> <C-k> <C-w>k
-nnoremap <silent> <C-l> <C-w>l
-
-nnoremap <Leader>o o<Esc>^Da
-nnoremap <Leader>O O<Esc>^Da
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
