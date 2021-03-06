@@ -2,19 +2,21 @@ let g:coc_global_extensions = ['coc-snippets', 'coc-explorer', 'coc-eslint', 'co
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     Plug 'sheerun/vim-polyglot'
     Plug 'joshdick/onedark.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
     Plug 'airblade/vim-rooter'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'liuchengxu/vim-which-key'
-    Plug 'mhinz/vim-startify'
     Plug 'preservim/nerdcommenter'
-    Plug 'roman/golden-ratio'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'tmhedberg/SimpylFold'
+    Plug 'liuchengxu/vim-which-key'
     Plug 'mhinz/vim-signify'
+    Plug 'mhinz/vim-startify'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
@@ -22,23 +24,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mattn/emmet-vim'
     Plug 'honza/vim-snippets'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
     Plug 'ThePrimeagen/vim-be-good'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'nvim-treesitter/playground'
-
-    " Plug 'voldikss/vim-floaterm'
-    " Plug 'edkolev/tmuxline.vim'
-    " Plug 'vimpostor/vim-tpipeline'
-    " Plug 'dense-analysis/ale'
-    " Plug 'Yggdroot/indentLine'
-    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    " Plug 'junegunn/fzf.vim'
-    " Plug 'ayu-theme/ayu-vim' " or other package manager
-    " Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 call plug#end()
