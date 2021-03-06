@@ -26,8 +26,8 @@
   },
   // python config
   "python.pythonPath": "/home/arc/.virtual_envs/pynvim/bin/python",
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "/home/arc/.virtual_envs/pynvim/bin/black",
+  /* "python.formatting.provider": "black", */
+  /* "python.formatting.blackPath": "/home/arc/.virtual_envs/pynvim/bin/black", */
   "python.linting.pylintEnabled": true,
   "python.linting.pylintPath": "/home/arc/.virtual_envs/pynvim/bin/pylint",
   "python.linting.pylintUseMinimalCheckers": false,
@@ -71,5 +71,50 @@
         "go"
       ]
     }
-  }
+  },
+  "cSpell.userWords": [
+    "ASGI",
+    "Bitonic",
+    "Coversations",
+    "Flockjay",
+    "Hoverable",
+    "Subarray",
+    "Subarrays",
+    "Upvotes",
+    "asana",
+    "bcrypt",
+    "calendly",
+    "cfiocfio",
+    "dari",
+    "fastapi",
+    "fieldtitle",
+    "fjapi",
+    "gamify",
+    "gmail",
+    "gsuite",
+    "isalpha",
+    "isnumeric",
+    "itertools",
+    "jsonify",
+    "latinx",
+    "linkedin",
+    "linkify",
+    "nargs",
+    "neoclide",
+    "onboarded",
+    "pydantic",
+    "pylist",
+    "pynvim",
+    "pyright",
+    "pytz",
+    "simplejwt",
+    "snakify",
+    "soteria",
+    "starlette",
+    "trello",
+    "uszipcode",
+    "uvicorn",
+    "vals",
+    "venv"
+  ]
 }
