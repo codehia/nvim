@@ -8,7 +8,9 @@ source $HOME/.config/nvim/plug-config/polygot.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
 source $HOME/.config/nvim/plug-config/nerd-commenter.vim
 source $HOME/.config/nvim/plug-config/go.vim
-source $HOME/.config/nvim/plug-config/treesitter.vim
 source $HOME/.config/nvim/plug-config/playground.vim
+source $HOME/.config/nvim/plug-config/telescope.nvim
+source $HOME/.config/nvim/plug-config/blamer.vim
+source $HOME/.config/nvim/plug-config/accordion.vim
 source $HOME/.config/nvim/keys/which-key.vim
 source $HOME/.config/nvim/keys/mappings.vim

@@ -42,10 +42,6 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-" nnoremap <silent><Leader>ps :Rg<SPACE>
-" nnoremap <silent><C-p> :GFiles<CR>
-" nnoremap <silent><Leader>pf :Files<CR>
-
 " GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
@@ -56,7 +52,8 @@ nmap <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
-nnoremap <leader>cr :CocRestart
+nnoremap <leader>cr :CocRestart<CR>
+
 " NerdCommenter mappings
 nmap <C-_>   <Plug>NERDCommenterToggle
 vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
@@ -64,14 +61,9 @@ vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
 nnoremap <silent><leader>n :nohl<CR>
 nmap <silent><leader>n :nohl<CR>
 
-" nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-
-" nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
-" nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
-" nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
-
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg :lua require('telescope.builtin').live_grep({ prompt_prefix=🔍 })<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
