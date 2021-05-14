@@ -1,62 +1,51 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
+local utils = require("utils.functions")
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local function load_plugins(use)
+    -- Packer
+    use {"wbthomason/packer.nvim", opt = true}
+    use "tiagovla/ezmap.nvim"
 
-if fn.empty(fn.glob(install_path)) > 0 then
-    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-    execute "packadd packer.nvim"
+    -- theme
+    use {"tiagovla/tokyodark.nvim"}
+    use {"akinsho/nvim-bufferline.lua", require("plug-config.bufferline")}
+    use {"hoob3rt/lualine.nvim", require("plug-config.lualine")}
+
+    -- FZF
+    use {"nvim-telescope/telescope.nvim", require("plug-config.telescope")}
+
+    -- Formatting
+    use {"norcalli/nvim-colorizer.lua", require("plug-config.colorizer")}
+    use {"tpope/vim-commentary", event = "BufRead"}
+    use {"tpope/vim-surround", event = "BufRead"}
+
+    -- LSP + Git
+    use {"glepnir/lspsaga.nvim", require("plug-config.lspsaga")}
+    use {"hrsh7th/nvim-compe", require("plug-config.compe")}
+    use {"tiagovla/lspconfigplus", require("plug-config.lsp")}
+    use {"lewis6991/gitsigns.nvim", require("plug-config.gitsigns")}
+    use {"sindrets/diffview.nvim", require("plug-config.diffview")}
+
+    -- Syntax
+    use {"nvim-treesitter/nvim-treesitter", require("plug-config.treesitter")}
+    -- use 'nvim-treesitter/playground'
+
+    use {"kyazdani42/nvim-tree.lua", require("plug-config.nvimtree")}
+
+    -- General Tools
+    use {"tweekmonster/startuptime.vim", cmd = {"StartupTime"}}
+    use {"liuchengxu/vim-which-key", require("plug-config.whichkey")}
+    use {"voldikss/vim-floaterm", require("plug-config.floaterm")}
+
+    -- Latex
+    use {"iamcco/markdown-preview.nvim", ft = "markdown"}
 end
 
---- Check if a file or directory exists in this path
-local function require_plugin(plugin)
-    local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
-
-    local plugin_path = plugin_prefix .. plugin .. "/"
-    --	print('test '..plugin_path)
-    local ok, err, code = os.rename(plugin_path, plugin_path)
-    if not ok then
-        if code == 13 then
-            -- Permission denied, but it exists
-            return true
-        end
-    end
-    --	print(ok, err, code)
-    if ok then
-        vim.cmd("packadd " .. plugin)
-    end
-    return ok, err, code
+local install = utils.ensure_packer_installed()
+local packer = require("packer")
+packer.startup(function()
+    load_plugins(utils.packer_use)
+end)
+if install then
+    packer.install()
+    packer.compile()
 end
-
-vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto compile when there are changes in plugins.lua
-
-return require("packer").startup(
-    function(use)
-        -- Packer can manage itself as an optional plugin
-        use "wbthomason/packer.nvim"
-
-        -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
-        use {"neovim/nvim-lspconfig", opt = true}
-        use {"glepnir/lspsaga.nvim", opt = true}
-        use {"kabouzeid/nvim-lspinstall", opt = true}
-
-        -- Autocomplete
-        use {"hrsh7th/nvim-compe", opt = true}
-        use {"hrsh7th/vim-vsnip", opt = true}
-        use {"rafamadriz/friendly-snippets", opt = true}
-
-        -- Treesitter
-        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
-        use {"windwp/nvim-ts-autotag", opt = true}
-
-
-        require_plugin("nvim-lspconfig")
-        require_plugin("lspsaga.nvim")
-        require_plugin("nvim-lspinstall")
-        require_plugin("friendly-snippets")
-        require_plugin("nvim-compe")
-        require_plugin("vim-vsnip")
-        require_plugin("nvim-treesitter")
-        require_plugin("nvim-ts-autotag")
-    end
-)
