@@ -1,92 +1,74 @@
-local M = {}
+local utils = require('utils')
 
-local b = vim.bo
-local g = vim.g
-local o = vim.o
-local w = vim.wo
 local cmd = vim.cmd
+local o = vim.o
+local wo = vim.wo
+local bo = vim.bo
+local indent = 4
 
-function M.setup()
-    M.options()
-    M.window_options()
-    M.commands()
-end
+cmd 'syntax enable'
+cmd 'filetype plugin indent on'
 
-function M.options()
-    g.python3_host_prog = "~/.pyenv/versions/3.8.9/bin/python3"
+bo.shiftwidth = indent
+bo.tabstop = indent
+bo.softtabstop = indent
+o.termguicolors = true
+o.hidden = true
+o.ignorecase = true
+o.scrolloff = 4
+o.splitbelow = true
+o.splitright = true
+o.wildmode = 'list:longest'
+o.clipboard = 'unnamed,unnamedplus'
+o.timeoutlen = 500
+wo.number = true
+wo.relativenumber = true
+wo.scrolloff = 8
+wo.cursorline = true
 
-    o.clipboard = "unnamedplus"
-    o.cmdheight = 1
-    o.completeopt = "menuone,noinsert,noselect"
+cmd [[
+set expandtab smarttab shiftround autoindent smartindent smartcase
+]]
 
-    o.history = 1000
-    o.hlsearch = true
-    o.inccommand = "split"
-    o.incsearch = true
-    o.infercase = true
-    o.joinspaces = false
+-- Highlight on yank
+cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 
-    o.scrolloff = 10
-    o.sidescrolloff = 8
+-- Auto format
+vim.api.nvim_exec([[
+augroup auto_fmt
+    autocmd!
+    autocmd BufWritePre *.py,*.lua try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+aug END
+]], false)
 
-    o.showbreak = "↳"
-    o.smarttab = true
-    o.smartcase = true
+vim.api.nvim_exec([[
+augroup auto_spellcheck
+    autocmd!
+    autocmd BufNewFile,BufRead *.md setlocal spell
+    autocmd BufNewFile,BufRead *.org setfiletype markdown
+    autocmd BufNewFile,BufRead *.org setlocal spell
+    autocmd BufNewFile,BufRead *.html setlocal ts=2 sw=2 expandtab
+    autocmd BufNewFile,BufRead *.js setlocal ts=2 sw=2 expandtab
+    autocmd BufNewFile,BufRead *.json setlocal syntax=off expandtab
+augroup END
+]], false)
 
-    o.splitright = true
-    o.splitbelow = true
+vim.api.nvim_exec([[
+augroup auto_term
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+    autocmd TermOpen * startinsert
+augroup END
+]], false)
 
-    o.termguicolors = true
-    o.wildmode = "list:longest"
+vim.api.nvim_exec([[
+    fun! TrimWhitespace()
+        let l:save = winsaveview()
+        keeppatterns %s/\s\+$//e
+        call winrestview(l:save)
+    endfun
 
-    b.shiftwidth = 4
-    b.tabstop = 4
-    b.softtabstop = 0
-    b.expandtab = true
-    b.smartindent = true
-    b.shiftwidth = 4
-    b.expandtab = true
+    autocmd FileType go,rust,html,typescript,javascript,python autocmd BufWritePre <buffer> call TrimWhitespace()
 
-    o.shiftwidth = 4
-    o.tabstop = 4
-    o.softtabstop = 0
-    o.expandtab = true
-    o.smartindent = true
-    o.shiftwidth = 4
-    o.expandtab = true
+]], false)
 
-    g.showtabline = 2
-    o.hidden = true
-    o.shortmess = o.shortmess .. "c"
-    o.showmode = false
-    o.hlsearch = false
-    o.mouse = "a"
-    o.listchars = "tab:!·,trail:."
-end
-
-function M.window_options()
-    w.list = true
-    w.number = true
-    w.relativenumber = true
-    w.wrap = false
-    w.colorcolumn = "80"
-end
-
-function M.commands()
-    cmd("set cursorline")
-    cmd("set t_ZH=^[[3m")
-    cmd("set t_ZR=^[[23m")
-    cmd(
-        [[ autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300} ]])
-
-    -- debugging function
-    cmd([[
-        function! SynGroup()
-            let l:s = synID(line('.'), col('.'), 1)
-            echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-        endfun
-    ]])
-    cmd([[nmap <F10> :call SynGroup() <cr>]])
-end
-
-return M
