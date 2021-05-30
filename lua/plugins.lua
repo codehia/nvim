@@ -11,9 +11,9 @@ return require('packer').startup(function()
     use {'tpope/vim-rhubarb'}
     use {'tpope/vim-unimpaired'}
     use {'tpope/vim-vinegar'}
+    use {'tpope/vim-sleuth'}
     use {'wellle/targets.vim'}
     use {'easymotion/vim-easymotion'}
-    use {'liuchengxu/vim-which-key'}
     use {
         'lewis6991/gitsigns.nvim',
         config = function() require('gitsigns').setup() end
@@ -24,6 +24,12 @@ return require('packer').startup(function()
     }
     use {'unblevable/quick-scope'}
     use {'voldikss/vim-floaterm'}
+    use {'jiangmiao/auto-pairs'}
+    use {
+        "folke/which-key.nvim",
+        config = function() require("which-key").setup {} end
+    }
+    -- use {'liuchengxu/vim-which-key'}
     -- use {'norcalli/nvim-colorizer.lua'}
     -- use {'kevinhwang91/rnvimr'}
     -- use {'francoiscabrol/ranger.vim'}
@@ -36,6 +42,7 @@ return require('packer').startup(function()
     -- Color scheme
     use {'kyazdani42/nvim-web-devicons'}
     use {'sainnhe/gruvbox-material'}
+    use {'folke/tokyonight.nvim'}
     -- use {'joshdick/onedark.vim'}
 
     -- Testing
@@ -79,9 +86,15 @@ return require('packer').startup(function()
     use {'szw/vim-maximizer'}
     use {'dyng/ctrlsf.vim'}
     use {'dbeniamine/cheat.sh-vim'}
-    use {'kevinhwang91/nvim-bqf'}
-    use {'junegunn/vim-peekaboo'}
     use {'pechorin/any-jump.vim'}
+    use {'kshenoy/vim-signature'}
+    -- use {'kevinhwang91/nvim-bqf'}
+    -- use {
+    --     "folke/trouble.nvim",
+    --     requires = "kyazdani42/nvim-web-devicons",
+    --     config = function() require("trouble").setup {} end
+    -- }
+    -- use {'junegunn/vim-peekaboo'}
     -- use {'gennaro-tedesco/nvim-peekup'}
     -- use {'wellle/context.vim'}
     -- use {'lukas-reineke/indent-blankline.nvim' }
@@ -104,7 +117,13 @@ return require('packer').startup(function()
     -- use { 'nvim-telescope/telescope-snippets.nvim' }
 
     -- Lua development
-    use {'tjdevries/nlua.nvim'}
+    use {'folke/lua-dev.nvim'}
+    use {'simrat39/symbols-outline.nvim'}
+    use {'rafcamlet/nvim-luapad'}
+    use {'~/workspace/development/alpha2phi/alpha.nvim'}
+    -- use {'tjdevries/nlua.nvim'}
+    -- use {'metakirby5/codi.vim'}
+    -- use {'bfredl/nvim-luadev'}
 
     -- Plugin development
     use {'thinca/vim-themis'}
@@ -145,4 +164,86 @@ return require('packer').startup(function()
     -- Rust
     use {'rust-lang/rust.vim'}
 
+    -- Database
+    -- use {'tpope/vim-dadbod'}
+    -- use {'kristijanhusak/vim-dadbod-ui'}
+    -- use {'kristijanhusak/vim-dadbod-completion'}
+    -- use {'tpope/vim-dotenv' }
+
+    -- Markdown
+    -- use {'npxbr/glow.nvim', run = ':GlowInstall'}
+    -- use {'mzlogin/vim-markdown-toc'}
+    -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+    -- use {'godlygeek/tabular'}
+    -- use {'plasticboy/vim-markdown'}
+
+    -- Development settings
+    -- use {'editorconfig/editorconfig-vim'}
+
+    -- Writing and note taking
+    -- use {'gyim/vim-boxdraw'}
+    -- use {'preservim/vim-pencil'}
+    -- use {'junegunn/goyo.vim'}
+    -- use {'junegunn/limelight.vim'}
+    -- use {'preservim/vim-colors-pencil'}
+    -- use {'dhruvasagar/vim-dotoo'}
+    -- use {'dhruvasagar/vim-table-mode'}
+    -- use {'fmoralesc/vim-pad'}
+    -- use {'vimwiki/vimwiki', branch = 'dev'}
+    -- use {'blindFS/vim-taskwarrior'}
+    -- use {'tools-life/taskwiki'}
+    -- use {'powerman/vim-plugin-AnsiEsc'}
+
+    -- Presentation
+    -- use {'sotte/presenting.vim'}
+    -- use {'vim-pandoc/vim-pandoc'}
+    -- use {'vim-pandoc/vim-pandoc-syntax'}
+    -- use {'vim-pandoc/vim-pandoc-after'}
+
+    -- Testing
+    -- use {'FooSoft/vim-argwrap'}
+    -- use {'preservim/vimux'}
+
+    -- use {'vuciv/vim-bujo'}
+    -- use {'freitass/todo.txt-vim'}
+    -- use {'oberblastmeister/neuron.nvim', branch = 'unstable'}
+
+    -- use {'oberblastmeister/neuron.nvim' }
+    -- use {'junegunn/fzf', run = '-> fzf#install()' }
+    -- use {'junegunn/fzf.vim'}
+    -- use {'fiatjaf/neuron.vim' }
+
+    -- -- DAP
+    -- use {'mfussenegger/nvim-dap' }
+    -- use {'nvim-telescope/telescope-dap.nvim' }
+    -- use {'mfussenegger/nvim-dap-python' } -- Python
+
+    -- Project mgmt
+    -- use {'vim-ctrlspace/vim-ctrlspace' }
+
+    -- Embed in browser
+    -- use {'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
+
+    -- OSC 52 yank
+    -- use {'ojroques/vim-oscyank' }
+
+    -- Jupyter Vim
+    -- use {'jupyter-vim/jupyter-vim' }
+
+    -- Scratch pad
+    -- use {'metakirby5/codi.vim' }
+
+    -- Slime
+    -- use {'jpalardy/vim-slime' }
+
+    -- Latex
+    -- use {'lervag/vimtex' }
+
+    -- Neoterm
+    -- use {'kassio/neoterm' }
+
+    -- Better terminal
+    -- use {'nikvdp/neomux' }
+
 end)
+

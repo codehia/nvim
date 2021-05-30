@@ -24,6 +24,11 @@ utils.map('n', '<Leader>bn', '<Cmd>bn<CR>')
 utils.map('n', '<Leader>bp', '<Cmd>bp<CR>')
 utils.map('n', '<Leader>bl', '<Cmd>ls<CR>')
 
+utils.map('n', '<Leader>qf', '<Cmd>copen<CR>')
+utils.map('n', '<Leader>qc', '<Cmd>cclose<CR>')
+utils.map('n', '<Leader>qn', '<Cmd>cnext<CR>')
+utils.map('n', '<Leader>qp', '<Cmd>cprev<CR>')
+
 vim.api.nvim_exec([[
 
 cnoreabbrev W! w!
@@ -48,6 +53,9 @@ nnoremap <silent> <M-down> <C-w>-
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 nnoremap <Leader>pd :let &runtimepath.=','.escape(expand('%:p:h'), '\,')
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 ]], false)
 
