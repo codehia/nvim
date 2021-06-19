@@ -27,11 +27,9 @@
   // python config
   "python.venvPath": "/home/codehia/.virtual_envs/pynvim",
   "python.pythonPath": "/home/codehia/.virtual_envs/pynvim/bin/python",
+  "python.formatting.autopep8Args": ["--max-line-length=120", "--experimental", "--aggressive", "--aggressive"],
   "python.linting.flake8Enabled":true,
   "python.linting.flake8Path": "/home/codehia/.virtual_envs/pynvim/bin/flake8",
-  // "python.linting.pylintEnabled": true,
-  // "python.linting.pylintPath": "/home/arc/.virtual_envs/pynvim/bin/pylint",
-  // "python.linting.pylintUseMinimalCheckers": false,
   "python.analysis.autoImportCompletions": true,
   "python.linting.lintOnSave": true,
   "codeLens.enable": true,
