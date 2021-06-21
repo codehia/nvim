@@ -6,7 +6,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'sheerun/vim-polyglot'
-    Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
     Plug 'airblade/vim-rooter'
     Plug 'joshdick/onedark.vim'
     Plug 'vim-airline/vim-airline'
@@ -33,10 +32,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'APZelos/blamer.nvim'
     Plug 'mattboehm/vim-accordion'
     Plug 'psliwka/vim-smoothie'
+
     " Plug 'tiagovla/tokyodark.nvim'
-    " Plug 'neovim/nvim-lspconfig'
-    " Plug 'glepnir/lspsaga.nvim'
     " Plug 'glepnir/spaceline.vim'
     " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
+    
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'kabouzeid/nvim-lspinstall'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
