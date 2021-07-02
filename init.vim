@@ -9,7 +9,7 @@ source $HOME/.config/nvim/plug-config/start-screen.vim
 source $HOME/.config/nvim/plug-config/nerd-commenter.vim
 source $HOME/.config/nvim/plug-config/go.vim
 source $HOME/.config/nvim/plug-config/playground.vim
-source $HOME/.config/nvim/plug-config/telescope.nvim
+source $HOME/.config/nvim/plug-config/telescope.vim
 source $HOME/.config/nvim/plug-config/blamer.vim
 source $HOME/.config/nvim/plug-config/accordion.vim
 source $HOME/.config/nvim/keys/which-key.vim

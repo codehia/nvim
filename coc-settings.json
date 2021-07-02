@@ -25,11 +25,11 @@
     "v": "open:vsplit"
   },
   // python config
-  "python.venvPath": "/home/codehia/.virtual_envs/pynvim",
-  "python.pythonPath": "/home/codehia/.virtual_envs/pynvim/bin/python",
+  "python.venvPath": "/home/codehia/.virtual_envs/pyenv",
+  "python.pythonPath": "/home/codehia/.virtual_envs/pyenv/bin/python",
   "python.formatting.autopep8Args": ["--max-line-length=120", "--experimental", "--aggressive", "--aggressive"],
   "python.linting.flake8Enabled":true,
-  "python.linting.flake8Path": "/home/codehia/.virtual_envs/pynvim/bin/flake8",
+  "python.linting.flake8Path": "/home/codehia/.virtual_envs/pyenv/bin/flake8",
   "python.analysis.autoImportCompletions": true,
   "python.linting.lintOnSave": true,
   "codeLens.enable": true,
