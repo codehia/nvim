@@ -3,6 +3,7 @@ source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/paths.vim
 source $HOME/.config/nvim/themes/onedark.vim
 source $HOME/.config/nvim/themes/airline.vim
+" source $HOME/.config/nvim/themes/spaceline.vim
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/polygot.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
